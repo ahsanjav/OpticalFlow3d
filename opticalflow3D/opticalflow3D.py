@@ -79,10 +79,11 @@ class Farneback3D:
         if total_vol is None:
             total_vol = image1.shape - np.array(start_point)
 
-        print("Running 3D Farneback optical flow with the following parameters:")
+        import sys
+        print("Running 3D Farneback optical flow with the following parameters:", file=sys.stderr)
         print(
-            f"Iters: {self.iters} | Levels: {self.num_levels} | Scale: {self.scale} | Kernel: {self.spatial_size} | Filter: {self.filter_type}-{self.filter_size} | Presmoothing: {self.presmoothing}",
-            flush=True)
+            f"Iters: {self.iters} | Levels: {self.num_levels} | Scale: {self.scale} | Kernel: {self.spatial_size} | Filter: {self.filter_type}-{self.filter_size} | Presmoothing: {self.presmoothing} | Device: {self.device_id}",
+            flush=True, file=sys.stderr)
 
         output_vx = np.zeros(total_vol, dtype=np.float32)
         output_vy = np.zeros(total_vol, dtype=np.float32)
@@ -241,10 +242,11 @@ class PyrLK3D:
         if total_vol is None:
             total_vol = image1.shape - np.array(start_point)
 
-        print("Running 3D pyramidal Lucas Kanade optical flow with the following parameters:")
+        import sys
+        print("Running 3D pyramidal Lucas Kanade optical flow with the following parameters:", file=sys.stderr)
         print(
-            f"Iters: {self.iters} | Levels: {self.num_levels} | Scale: {self.scale} | Tau: {self.tau} | Alpha: {self.alpha} | Filter: {self.filter_type}-{self.filter_size} | Presmoothing: {self.presmoothing}",
-            flush=True)
+            f"Iters: {self.iters} | Levels: {self.num_levels} | Scale: {self.scale} | Tau: {self.tau} | Alpha: {self.alpha} | Filter: {self.filter_type}-{self.filter_size} | Presmoothing: {self.presmoothing} | Device: {self.device_id}",
+            flush=True, file=sys.stderr)
 
         output_vx = np.zeros(total_vol, dtype=np.float32)
         output_vy = np.zeros(total_vol, dtype=np.float32)
